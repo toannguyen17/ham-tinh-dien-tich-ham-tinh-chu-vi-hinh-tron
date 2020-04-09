@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hàm tính diện tích, hàm tính chu vi hình tròn</title>
+</head>
+<body>
+	<p id="acreage"></p>
+	<p id="diameter"></p>
+	<p>
+		<label>Bán kính hình chòn:</label><br>
+		<input id="number" type="number" placeholder="Number"
+			   oninput="countF(this.value)"
+			   onchange="countF(this.value)">
+	</p>
+	<script type="text/javascript">
+		function countF(r) {
+			r = Number(r);
+			countAcreage(r);
+			countDiameter(r);
+		}
+		function countAcreage(r) {
+			let acreage = Math.pow(r, 2)*Math.PI;
+			if (acreage === 0) {
+				document.getElementById("acreage").innerText = '';
+			}else{
+				document.getElementById("acreage").innerText = 'Diện tích hình chòn bán kính ' + r +' là: ' + acreage;
+			}
+		}
+		function countDiameter(r) {
+			let diameter = r*2*Math.PI;
+			if (diameter === 0) {
+				document.getElementById("diameter").innerText = '';
+			}else{
+				document.getElementById("diameter").innerText = 'Đường kính hình chòn là: ' + diameter;
+			}
+		}
+	</script>
+</body>
+</html>
